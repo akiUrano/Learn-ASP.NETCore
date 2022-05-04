@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.31613.86
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Learn-ASP.NETCore", "Learn-ASP.NETCore\Learn-ASP.NETCore.csproj", "{573EB895-4D93-42D4-81E8-90392E939A49}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SamplerazorApp", "SamplerazorApp\SamplerazorApp.csproj", "{46D87BF0-4BAF-4074-A65D-4A1CC05F3316}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{573EB895-4D93-42D4-81E8-90392E939A49}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{573EB895-4D93-42D4-81E8-90392E939A49}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{573EB895-4D93-42D4-81E8-90392E939A49}.Release|Any CPU.Build.0 = Release|Any CPU
+		{46D87BF0-4BAF-4074-A65D-4A1CC05F3316}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{46D87BF0-4BAF-4074-A65D-4A1CC05F3316}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{46D87BF0-4BAF-4074-A65D-4A1CC05F3316}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{46D87BF0-4BAF-4074-A65D-4A1CC05F3316}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

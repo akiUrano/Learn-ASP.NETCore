@@ -1,17 +1,43 @@
-﻿@page
+﻿@page "{num?}"
 @model IndexModel
 @{
     ViewData["Title"] = "Home page";
+    var data = new string[] { "one", "two", "three", "four", "five" };
+    Func<dynamic, object> hello =@<p class="display-4">Hello,@item !! </p>;
+Func<dynamic, object> showList =@<ul class="h4">
+    @foreach (var ob in item)
+    {
+        <li>@ob</li>
+    }
+</ul>;
 }
-
-@*<div class="text-center">
+@functions
+{
+    string hello(string name) { return "Hello" + name + "!"; }
+    int total(int n)
+    {
+        var result = 0;
+        for (int i = 1; i <= n; i++)
+        {
+            result += i;
+        }
+        return result;
+    }
+}
+@section Between
+{
+    <p class="container alert alert-primary">
+        ※これはヘッダーとコンテンツの間に表示されます
+    </p>
+}
+<div class="text-center">
     <h1 class="display-4">Welcome</h1>
     <p class="h4">@Model.Message</p>
     <form asp-page="Other">
         <input type="text" name="msg" class="form-control" />
-        <input type="submit" class="btn btn-primary"  />
+        <input type="submit" class="btn btn-primary" />
     </form>
-</div>*@
+</div>
 <div>
     <h1 class="display-4" mb-4>Welcome</h1>
     <p class="h4">@Model.Message</p>
@@ -35,4 +61,77 @@
         <input type="submit" class="btn btn-primary" />
     </form>
 </div>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div>
+    <h1 class="display-4 mb-4">Welocome</h1>
+    <p class="h-4">@Model.Message</p>
+    <form asp-page="Index">
+        <div class="form-group">
+            @Html.DisplayName("Name")
+            @Html.Editor("Name", new { htmlAttributes = new { @class = "form-control" } })
+        </div>
+        <div class="form-group">
+            @Html.DisplayNameFor(model => model.Password)
+            @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
+        </div>
+        <div class="form-group">
+            @Html.DisplayName("Mail")
+            @Html.TextBox("Mail", @Model.Mail, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            @Html.DisplayName("Tel")
+            @Html.TextBoxFor(model => model.Tel, new { htmlAttributes = new { @class = "form-control" } })
+        </div>
+        <input type="submit" class="btn btn-primary" />
+    </form>
+</div>
+<div>
+    <h1 class="display-4 mb-4">Welocome</h1>
+    <ul>
+        @{
+            int totalp = 0;
+            int totaln = 0;
+        }
+        @for (int i = 2; i <= 20; i++)
+        {
+            var flg = true;
+
+            @for (int j = 2; j <= i; j++)
+            {
+                @if (i % j == 0)
+                {
+                    flg = false;
+                }
+            }
+            @if (flg)
+            {
+                totalp += i;
+                <li>@i は素数です(total:@totalp) </li>
+            }
+            else
+            {
+                totaln += i;
+                <li>@i は素数ではありません(total:@totaln) </li>
+            }
+        }
+    </ul>
+</div>
+<div>
+    <h1 class="display-4 mb-4">Welocome</h1>
+    <p class="h4">@Model.Num は<b>@(Model.Num%2==0?"偶数":"奇数")</b>です</p>
+    @{
+        int n = Model.Num * 2;
+        <Text>※整数　@Model.Num　の2倍は　@n です </Text>
+
+    }
+</div>
+<div>
+    <h1 class="display-4 mb-4">Welocome</h1>
+    <p class="h4">@hello("太郎")</p>
+    <p class="h4">@Model.Num　の合計は　@total(Model.Num)です</p>
+</div>
+<div>
+    <h1 class="display-4 mb-4">Welocome</h1>
+    <p class="h4">@hello("Hanako")</p>
+    <p class="h4">@showList(data)</p>
+</div>
+<p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>

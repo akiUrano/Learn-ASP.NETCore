@@ -29,8 +29,10 @@ namespace SamplerazorApp.Pages
             ,new string []{"Sachiko","sachiko@happy" }
         };
 
-        [BindProperty(SupportsGet =true)]
+        [BindProperty(SupportsGet = true)]
         public int id { get; set; }
+        [BindProperty(SupportsGet = true)]
+        public int Num { get; set; }
 
         public IndexModel(ILogger<IndexModel> logger)
         {
@@ -44,7 +46,7 @@ namespace SamplerazorApp.Pages
         }
         public void OnPost(string name, string password, string mail, string tel)
         {
-            Message = name+","+password + "," +mail + "," +tel;
+            Message = name + "," + password + "," + mail + "," + tel;
         }
         public string GetData(int id)
         {
