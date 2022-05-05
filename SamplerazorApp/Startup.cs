@@ -8,6 +8,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
+using SamplerazorApp.Models;
 
 namespace SamplerazorApp
 {
@@ -24,6 +26,9 @@ namespace SamplerazorApp
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddRazorPages();
+
+            services.AddDbContext<SamplerazorAppContext>(options =>
+                    options.UseSqlite(Configuration.GetConnectionString("SamplerazorAppContext")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

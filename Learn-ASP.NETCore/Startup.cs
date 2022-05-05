@@ -8,6 +8,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
+using Learn_ASP.NETCore.Models.Learn_ASP;
 
 namespace Learn_ASP.NETCore
 {
@@ -31,6 +33,9 @@ namespace Learn_ASP.NETCore
                 option.Cookie.IsEssential =true;
             });
             services.AddRazorPages().AddRazorRuntimeCompilation();
+
+            services.AddDbContext<NETCoreContext>(options =>
+                    options.UseSqlite(Configuration.GetConnectionString("NETCoreContext")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
